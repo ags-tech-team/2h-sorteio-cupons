@@ -1,0 +1,424 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --laranja: #f15a22;
+    --laranja-escuro: #c13e0e;
+    --preto: #000000;
+    --branco: #ffffff;
+    --cinza: #666666;
+    --cinza-claro: #f0f0f0;
+    --verde: #00c853;
+    --ouro: #ffd700;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, var(--preto) 50%, var(--laranja) 50%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.container {
+    background: var(--branco);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 900px;
+    padding: 25px;
+    border: 2px solid var(--laranja);
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--laranja);
+}
+
+.logo-text {
+    color: var(--laranja);
+    font-size: 2em;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.subtitle {
+    color: var(--cinza);
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.painel-controle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .painel-controle {
+        grid-template-columns: 1fr;
+    }
+}
+
+.secao {
+    background: var(--cinza-claro);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.secao-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.secao-header h2 {
+    color: var(--laranja);
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.badge {
+    background: var(--laranja);
+    color: var(--branco);
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.sorteio-display {
+    margin-bottom: 15px;
+}
+
+.display-item {
+    text-align: center;
+}
+
+.display-label {
+    display: block;
+    font-size: 0.85em;
+    color: var(--cinza);
+    margin-bottom: 5px;
+}
+
+.display {
+    background: var(--branco);
+    border: 2px solid var(--laranja);
+    border-radius: 8px;
+    padding: 20px 15px;
+    font-size: 1.8em;
+    font-weight: 700;
+    min-height: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s;
+    color: var(--preto);
+    overflow: hidden;
+    word-break: break-word;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Ajuste de fonte para nomes longos */
+.display.nome-longo {
+    font-size: 1.4em;
+}
+
+.display.nome-muito-longo {
+    font-size: 1.1em;
+}
+
+.display.sorteando {
+    animation: trocaRapida 0.1s infinite;
+    background: var(--laranja);
+    color: var(--branco);
+    border-color: var(--branco);
+    transform: scale(1.02);
+}
+
+@keyframes trocaRapida {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); background: var(--laranja-escuro); }
+}
+
+.contadores {
+    text-align: center;
+    font-size: 0.9em;
+    color: var(--cinza);
+    margin-bottom: 15px;
+    padding: 8px;
+    background: var(--branco);
+    border-radius: 8px;
+}
+
+.acoes {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-principal, .btn-secundario {
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 10px 25px;
+    font-size: 1em;
+}
+
+.btn-principal {
+    background: var(--laranja);
+    color: var(--branco);
+    border: 2px solid var(--branco);
+    flex: 2;
+}
+
+.btn-principal:hover:not(:disabled) {
+    transform: scale(1.02);
+    background: var(--laranja-escuro);
+}
+
+.btn-principal:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-secundario {
+    background: var(--preto);
+    color: var(--branco);
+    border: 2px solid var(--laranja);
+    flex: 1;
+}
+
+.btn-secundario:hover {
+    background: var(--laranja);
+}
+
+.lista-participantes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.participante-item {
+    background: var(--branco);
+    border-radius: 8px;
+    padding: 10px 12px;
+    border-left: 4px solid var(--laranja);
+    transition: all 0.3s;
+}
+
+.participante-item.campeao {
+    border-left-color: var(--ouro);
+    background: #fff8e1;
+    animation: brilho 1s infinite;
+}
+
+@keyframes brilho {
+    0%, 100% { box-shadow: 0 0 5px rgba(255, 215, 0, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+}
+
+.participante-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.participante-nome {
+    font-weight: 600;
+    font-size: 1em;
+    flex: 1;
+    min-width: 80px;
+}
+
+.participante-pontos {
+    color: var(--cinza);
+    font-size: 0.85em;
+}
+
+.participante-vitorias {
+    color: var(--laranja);
+    font-weight: 700;
+    font-size: 0.9em;
+}
+
+.barra-progresso {
+    width: 100%;
+    height: 6px;
+    background: var(--cinza-claro);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.barra-progresso-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--laranja), var(--ouro));
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+.resultado {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    background: var(--laranja);
+    color: var(--branco);
+    text-align: center;
+    font-size: 1em;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border: 2px solid var(--branco);
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.resultado.mostrar {
+    opacity: 1;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content.campeao {
+    background: var(--branco);
+    margin: 10% auto;
+    padding: 30px;
+    border: 3px solid var(--ouro);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    animation: zoomIn 0.5s;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-header h2 {
+    color: var(--ouro);
+    font-size: 2em;
+}
+
+.campeao-animacao {
+    padding: 20px 0;
+}
+
+.fogos {
+    font-size: 3em;
+    animation: pisca 0.5s infinite;
+}
+
+@keyframes pisca {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.campeao-nome {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--preto);
+    margin: 20px 0;
+    word-break: break-word;
+}
+
+.campeao-info {
+    font-size: 1.2em;
+    color: var(--cinza);
+    margin-bottom: 20px;
+}
+
+/* Scroll personalizado */
+.lista-participantes::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lista-participantes::-webkit-scrollbar-track {
+    background: var(--cinza-claro);
+    border-radius: 4px;
+}
+
+.lista-participantes::-webkit-scrollbar-thumb {
+    background: var(--laranja);
+    border-radius: 4px;
+}
+
+.lista-participantes::-webkit-scrollbar-thumb:hover {
+    background: var(--laranja-escuro);
+}
+
+/* Responsivo */
+@media (max-width: 500px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .logo-text {
+        font-size: 1.5em;
+    }
+    
+    .display {
+        font-size: 1.4em;
+        min-height: 65px;
+        height: 65px;
+        padding: 15px 10px;
+    }
+    
+    .display.nome-longo {
+        font-size: 1.1em;
+    }
+    
+    .display.nome-muito-longo {
+        font-size: 0.9em;
+    }
+    
+    .campeao-nome {
+        font-size: 1.8em;
+    }
+    
+    .participante-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .btn-principal, .btn-secundario {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+}

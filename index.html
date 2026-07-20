@@ -1,0 +1,75 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorteio Cupons - 2H Distribuidora</title>
+    <link rel="stylesheet" href="./CSS/index.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="logo-container">
+        <h1 class="logo-text">🏆 2H Distribuidora</h1>
+        <p class="subtitle">Sorteio de Cupons</p>
+      </div>
+
+      <div class="painel-controle">
+        <!-- Área do Sorteio -->
+        <div class="secao sorteio">
+          <div class="sorteio-display">
+            <div class="display-item">
+              <span class="display-label">🎯 Nome Sorteado</span>
+              <div class="display" id="nomeDisplay">---</div>
+            </div>
+          </div>
+
+          <div class="contadores">
+            <span id="totalCupons">0</span> cupons na urna | 
+            <span id="totalSorteados">0</span> sorteios realizados
+          </div>
+
+          <div class="acoes">
+            <button id="sortearBtn" class="btn-principal">🎰 Sortear</button>
+            <button id="reiniciarBtn" class="btn-secundario">↻ Reiniciar</button>
+          </div>
+        </div>
+
+        <!-- Lista de Participantes -->
+        <div class="secao participantes">
+          <div class="secao-header">
+            <h2>👥 Participantes</h2>
+            <span class="badge" id="totalParticipantes">0</span>
+          </div>
+
+          <div class="lista-participantes" id="listaParticipantes">
+            <!-- Renderizado via JS -->
+          </div>
+        </div>
+      </div>
+
+      <div class="resultado" id="resultado"></div>
+    </div>
+
+    <!-- Modal: Campeão -->
+    <div id="campeaoModal" class="modal">
+      <div class="modal-content campeao">
+        <div class="modal-header">
+          <h2>🏆 CAMPEÃO! 🏆</h2>
+        </div>
+        <div class="modal-body">
+          <div class="campeao-animacao">
+            <div class="fogos">🎉✨🎊</div>
+            <div class="campeao-nome" id="campeaoNome">---</div>
+            <div class="campeao-info" id="campeaoInfo">5 vitórias!</div>
+            <div class="fogos">🎊✨🎉</div>
+          </div>
+          <button id="fecharCampeaoBtn" class="btn-principal">Ver Ranking</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./assets/index.js" defer></script>
+  </body>
+</html>
