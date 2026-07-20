@@ -1,5 +1,5 @@
 const participantesData = [
-    { nome: "NICOLI WESTPHAL", pontos: 9626 },
+    { nome: "DÉBORA WESTPHAL", pontos: 9626 },
     { nome: "CELITO FRANCISCO DA SILVA JUNIOR", pontos: 7928 },
     { nome: "DOUGLAS CELIO BATISTA", pontos: 6810 },
     { nome: "CESAR BLUMENAU", pontos: 6799 },
@@ -15,7 +15,6 @@ const participantesData = [
     { nome: "DANIEL DEYVISON JUNKES", pontos: 3424 },
     { nome: "ELVIRA SCHONS", pontos: 2795 },
     { nome: "NANAINA FERREIRA", pontos: 2420 },
-    { nome: "ALEX BERNARDO REGINALDO", pontos: 2338 },
     { nome: "DEIVIS LUDWIG DA SILVA", pontos: 2204 },
     { nome: "LEANDRO BORGES FERREIRA", pontos: 2143 },
     { nome: "LOIA GOMES ALVES", pontos: 2018 },
